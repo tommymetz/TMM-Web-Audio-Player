@@ -47,7 +47,7 @@ also be just above the first instance of this player.
    should only be embedded once). Just make sure you change the id on the div
    as well as in the `embed_div` parameter so that each embed has a unique id.
 
-# Init Params
+### Init Params
 - `embed_div` - The div you'd like the player to built into. If you have
   multiple embeds just make sure each div has a unique it.
 - `tracks` - An array of tracks.
