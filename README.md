@@ -1,6 +1,6 @@
 # TMM Web Audio Player
 
-This is a simple embeddable web audio playlist player built with react.
+This is a simple embeddable web audio playlist player built with ReactJS.
 
 <img src="https://github.com/tommymetz/TMM-Web-Audio-Player/blob/main/screenshot.png?raw=true" width="400"/>
 
@@ -15,7 +15,7 @@ your website.
    `public` folder, as well as your mp3 files on a CDN like S3. Make sure these
    files are publicly accessible over the web.
 
-2. Embed the following code once in your site. Preferably in the header but could
+2. Embed the following code **once** in your site. Preferably in the header but could
 also be just above the first instance of this player.
 ```
 <link rel="stylesheet" href="https://[path-to-cdn]/tmm-web-audio-player.css">
@@ -34,7 +34,7 @@ also be just above the first instance of this player.
     TMMWebAudioPlayer.init({
       embed_div: 'tmm-web-audio-player-embed-01',
       tracks: [
-        {title: "Title of song", url: "https://[path-to-cdn]/example-tommymetz.mp3"},
+        {title: "Title of song", url: "https://[path-to-cdn]/audio/example-tommymetz.mp3"},
         {title: "Title of song", url: "https://[path-to-cdn]/audio/example-wirefaces.mp3"},
         {title: "Title of song", url: "https://[path-to-cdn]/audio/example-tylerfong.mp3"},
       ]
@@ -47,19 +47,25 @@ also be just above the first instance of this player.
    should only be embedded once). Just make sure you change the id on the div
    as well as in the `embed_div` parameter so that each embed has a unique id.
 
-### Init Params
+# Init Params
 - `embed_div` - The div you'd like the player to built into. If you have
   multiple embeds just make sure each div has a unique it.
 - `tracks` - An array of tracks.
   - `title` - The text to appear in the playlist.
   - `url` - The url to the audio file on your CDN.
 
-## Build
+# Development
 
-`yarn build` will build a production ready files.
-`yarn build:watch` will build as you develop.
+This was quickly developed and could use some more love like tests etc. If you
+want to use this and have some requests, please contact tom@tommetzmedia.com.
 
 ## Examples
 
 To view the examples locally, run `yarn install` and `yarn start`. This will
 open up a page showing a working example.
+
+## Build
+
+`yarn build` will build a production ready files.
+`yarn build:watch` will build as you develop.
+
