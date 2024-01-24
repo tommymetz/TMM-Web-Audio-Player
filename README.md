@@ -2,7 +2,7 @@
 
 This is a simple embeddable web audio playlist player built with react.
 
-![Screenshot of player](https://github.com/tommymetz/TMM-Web-Audio-Player/blob/main/screenshot.png?raw=true)
+![Screenshot of player](https://github.com/tommymetz/TMM-Web-Audio-Player/blob/main/screenshot.png?raw=true | width: 400)
 
 ## How To Use
 
