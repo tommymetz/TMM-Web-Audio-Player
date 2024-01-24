@@ -1,0 +1,65 @@
+@import '../../variables.scss';
+
+.tmm_pause-play-button{
+  display: block;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid $gray;
+  background-color: $black;
+  color: $white;
+  overflow: hidden;
+
+  &:hover{
+    cursor: pointer;
+    background-color: $white;
+    color: $black;
+
+    .tmm_pause-play-button_play_triangle,
+    .tmm_pause-play-button_pause_rectangle0,
+    .tmm_pause-play-button_pause_rectangle1{
+      background-color: $black;
+    }
+  }
+
+  &_play{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width:80%;
+    height: 80%;
+    transform: translate(15%, -50%) scaleX(1.8);
+    overflow: hidden;
+
+    &_triangle{
+      position: absolute;
+      width: 19px;
+      height: 19px;
+      top: 10%;
+      left:-60%;
+      background-color: $white;
+      transform: rotate(45deg);
+    }
+  }
+
+  &_pause{
+    position: absolute;
+    display:flex;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    &_rectangle0{
+      width: 4px;
+      height: 14px;
+      background-color: $white;
+      margin-right: 4px;
+    }
+    &_rectangle1{
+      width: 4px;
+      height: 14px;
+      background-color: $white;
+    }
+  }
+}

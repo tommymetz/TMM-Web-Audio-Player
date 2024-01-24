@@ -1,0 +1,54 @@
+<link rel="stylesheet" href="/tmm-web-audio-player.css">
+<script type="text/javascript" src="/tmm-web-audio-player.js"></script>
+
+<br><br>
+<h3>TMM Web Audio Player:</h3>
+
+<div style="width: 400px" id="tmm-web-audio-player-embed-01"></div>
+<script type="text/javascript">
+  (function() {
+    TMMWebAudioPlayer.init({
+      embed_div: 'tmm-web-audio-player-embed-01',
+      tracks: [
+        {title: "Cool Song You Like", url: "/audio/example-tommymetz.mp3"},
+        {title: "Let's Eat Ice Cream", url: "/audio/example-wirefaces.mp3"},
+        {title: "Casio Keyboard Pandemic", url: "/audio/example-tylerfong.mp3"},
+      ]
+    });
+  })();
+</script>
+
+<br><br>
+<h3>Broken Tracks:</h3>
+
+<div style="width: 400px" id="tmm-web-audio-player-embed-02"></div>
+<script type="text/javascript">
+  (function() {
+    TMMWebAudioPlayer.init({
+      embed_div: 'tmm-web-audio-player-embed-02',
+      tracks: [
+        {title: "Cool Song You Like", url: "/BROKENaudio/example-tommymetz.mp3"},
+        {title: "Let's Eat Ice Cream", url: "/audio/example-wirefaces.mp3"},
+        {title: "Casio Keyboard Pandemic", url: "/audio/BROKENexample-tylerfong.mp3"},
+      ]
+    });
+  })();
+</script>
+
+<br><br>
+<h3>Can't Find Div:</h3>
+
+<div style="width: 400px" id="tmm-web-audio-player-embed-03"></div>
+<p>Should see JS error in dev console (option + command + i)</p>
+<script type="text/javascript">
+  (function() {
+    TMMWebAudioPlayer.init({
+      embed_div: 'tmm-web-audio-player-embed-03BROKEN',
+      tracks: [
+        {title: "Cool Song You Like", url: "/audio/example-tommymetz.mp3"},
+        {title: "Let's Eat Ice Cream", url: "/audio/example-wirefaces.mp3"},
+        {title: "Casio Keyboard Pandemic", url: "/audio/example-tylerfong.mp3"},
+      ]
+    });
+  })();
+</script>

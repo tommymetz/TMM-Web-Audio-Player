@@ -1,0 +1,41 @@
+@import '../../variables.scss';
+
+.tmm_playlist_container{
+
+  .tmm_playlist_player{
+    margin-bottom: 10px;
+  }
+
+  .tmm_playlist_list{
+    &_track{
+      display: block;
+      width:100%;
+      box-sizing: border-box;
+      text-decoration: none;
+      padding: 5px;
+      padding-left: 15px;
+      position: relative;
+      color: $black;
+
+      &:hover{
+        text-decoration: underline;
+      }
+
+      &.active{
+        text-decoration: underline;
+      
+        &:before{
+          content: '';
+          position: absolute;
+          left:0px;
+          top:50%;
+          transform: translateY(-50%);
+          width:6px;
+          height:6px;
+          background-color: $black;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}
