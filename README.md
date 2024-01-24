@@ -56,8 +56,9 @@ also be just above the first instance of this player.
 
 # Development
 
-This was quickly developed and could use some more love like tests etc. If you
-want to use this and have some requests, please contact tom@tommetzmedia.com.
+This was quickly developed and could use some more love like tests etc.
+
+If you want to use this and have some requests, please contact tom@tommetzmedia.com.
 
 ## Examples
 
@@ -66,6 +67,6 @@ open up a page showing a working example.
 
 ## Build
 
-`yarn build` will build a production ready files.
-`yarn build:watch` will build as you develop.
+- `yarn build` will build a production ready files.
+- `yarn build:watch` will build as you develop.
 
