@@ -9,7 +9,7 @@ module.exports = {
   devtool: 'source-map',
   mode: 'development',
   output: {
-    path: __dirname + '/public',
+    path: __dirname + '/public/v1',
     filename: '[name].js',
     library: 'TMMWebAudioPlayer',
     libraryTarget: 'umd',

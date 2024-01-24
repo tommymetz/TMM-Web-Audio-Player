@@ -56,7 +56,6 @@ export const AudioPlayer = ({src}) => {
     }
     audio_timeline.current.onmouseleave = (event) => {
       setTimelineHovering(false);
-      setTimelinePlayheadLeft(audio.current.currentTime);
     }
     audio_timeline.current.onmousemove = (event) => {
       const left = event.offsetX < 0 ? 0 : event.offsetX;
@@ -72,11 +71,19 @@ export const AudioPlayer = ({src}) => {
     }
   }, [src]);
 
+  // Set playhead to current time when not hovering
+  useEffect(() => {
+    if(!timelineHovering) {
+      setTimelinePlayheadLeft(currentTime / audioDuration * 100 + '%');
+    }
+  }, [timelineHovering])
+
+  // Update timeline bar and playhead
   useEffect(() => {
     const percentage = currentTime / audioDuration * 100;
     const width = percentage + '%';
     let left = timelinePlayheadLeft;
-    if(!timelineHovering) left = percentage + '%';
+    if(!timelineHovering && !paused) left = percentage + '%';
     setTimelineBarWidth(width);
     setTimelinePlayheadLeft(left);
   }, [currentTime]);

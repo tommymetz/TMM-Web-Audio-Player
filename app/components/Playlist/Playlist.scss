@@ -1,6 +1,11 @@
 @import '../../variables.scss';
 
 .tmm_playlist_container{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 5px;
+  padding-bottom: 15px;
+  border: 1px solid $gray;
 
   .tmm_playlist_player{
     margin-bottom: 10px;
@@ -13,7 +18,7 @@
       box-sizing: border-box;
       text-decoration: none;
       padding: 5px;
-      padding-left: 15px;
+      padding-left: 13px;
       position: relative;
       color: $black;
 
@@ -32,7 +37,7 @@
           transform: translateY(-50%);
           width:6px;
           height:6px;
-          background-color: $black;
+          background-color: $graydark;
           border-radius: 50%;
         }
       }
