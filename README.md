@@ -13,7 +13,26 @@ your website.
 
 1. Host `tmm-web-audio-player.css` and `tmm-web-audio-player.js`, located in the
    `public` folder, as well as your mp3 files on a CDN like S3. Make sure these
-   files are publicly accessible over the web.
+   files are publicly accessible over the web. You will need to add the
+   following CORS configuration to your S3 bucket:
+
+```
+[
+  {
+    "AllowedHeaders": [
+        "*"
+    ],
+    "AllowedMethods": [
+        "GET"
+    ],
+    "AllowedOrigins": [
+        "*"
+    ],
+    "ExposeHeaders": [],
+    "MaxAgeSeconds": 3000
+  }
+]
+```
 
 2. Embed the following code **once** in your site. Preferably in the header but could
 also be just above the first instance of this player.
