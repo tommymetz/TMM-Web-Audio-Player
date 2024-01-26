@@ -1,6 +1,6 @@
 {
   "name": "tmm-web-audio-player",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "type": "module",
   "private": true,
   "description": "A simple web audio playlist player.",

@@ -51,11 +51,11 @@ also be just above the first instance of this player.
 <script type="text/javascript">
   (function() {
     TMMWebAudioPlayer.init({
-      embed_div: 'tmm-web-audio-player-embed-01',
+      embedDiv: 'tmm-web-audio-player-embed-01',
       tracks: [
-        {title: "Title of song", url: "https://[path-to-cdn]/audio/example-tommymetz.mp3"},
-        {title: "Title of song", url: "https://[path-to-cdn]/audio/example-wirefaces.mp3"},
-        {title: "Title of song", url: "https://[path-to-cdn]/audio/example-tylerfong.mp3"},
+        {title: "Title of song", file: "https://[path-to-cdn]/audio/example-tommymetz.mp3"},
+        {title: "Title of song", file: "https://[path-to-cdn]/audio/example-wirefaces.mp3"},
+        {title: "Title of song", file: "https://[path-to-cdn]/audio/example-tylerfong.mp3"},
       ]
     });
   })();
@@ -71,7 +71,7 @@ also be just above the first instance of this player.
   multiple embeds just make sure each div has a unique it.
 - `tracks` - An array of tracks.
   - `title` - The text to appear in the playlist.
-  - `url` - The url to the audio file on your CDN.
+  - `file` - The url to the audio file.
 
 # Development
 

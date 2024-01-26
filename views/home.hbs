@@ -4,19 +4,44 @@
 <br><br>
 <h3>TMM Web Audio Player:</h3>
 
-<div style="width: 400px" id="tmm-web-audio-player-embed-01"></div>
+<div style="width: 400px" id="tmm-web-audio-player-embed"></div>
 <script type="text/javascript">
   (function() {
     TMMWebAudioPlayer.init({
-      embed_div: 'tmm-web-audio-player-embed-01',
+      embedDiv: 'tmm-web-audio-player-embed',
       tracks: [
-        {title: "Cool Song You Like", url: "/example-audio/example-tommymetz.mp3"},
-        {title: "Let's Eat Ice Cream", url: "/example-audio/example-wirefaces.mp3"},
-        {title: "Casio Keyboard Pandemic", url: "/example-audio/example-tylerfong.mp3"},
-        {title: "Bambi's Boolean Value", url: "/example-audio/example-tommymetz.mp3"},
-        {title: "Pineapple Espresso", url: "/example-audio/example-wirefaces.mp3"},
-        {title: "Flamingo Espionage Theme", url: "/example-audio/example-tylerfong.mp3"},
+        {title: "Cool Song You Like", file: "/example-audio/example-tommymetz.mp3"},
+        {title: "Let's Eat Ice Cream", file: "/example-audio/example-wirefaces.mp3"},
+        {title: "Casio Keyboard Pandemic", file: "/example-audio/example-tylerfong.mp3"},
+        {title: "Bambi's Boolean Value", file: "/example-audio/example-tommymetz.mp3"},
+        {title: "Pineapple Espresso", file: "/example-audio/example-wirefaces.mp3"},
+        {title: "Flamingo Espionage Theme", file: "/example-audio/example-tylerfong.mp3"},
       ]
+    });
+  })();
+</script>
+
+<br><br>
+<h3>Load From JSON File:</h3>
+
+<div style="width: 400px" id="tmm-web-audio-player-embed-json-file"></div>
+<script type="text/javascript">
+  (function() {
+    TMMWebAudioPlayer.init({
+      embedDiv: 'tmm-web-audio-player-embed-json-file',
+      tracksJsonUrl: "/example-audio/tracks.json"
+    });
+  })();
+</script>
+
+<br><br>
+<h3>No Tracks or Tracks JSON File:</h3>
+
+<div style="width: 400px" id="tmm-web-audio-player-embed-no-tracks"></div>
+<script type="text/javascript">
+  (function() {
+    TMMWebAudioPlayer.init({
+      embedDiv: 'tmm-web-audio-player-embed-no-tracks',
     });
   })();
 </script>
@@ -24,15 +49,15 @@
 <br><br>
 <h3>Broken Tracks:</h3>
 
-<div style="width: 400px" id="tmm-web-audio-player-embed-02"></div>
+<div style="width: 400px" id="tmm-web-audio-player-embed-broken-tracks"></div>
 <script type="text/javascript">
   (function() {
     TMMWebAudioPlayer.init({
-      embed_div: 'tmm-web-audio-player-embed-02',
+      embedDiv: 'tmm-web-audio-player-embed-broken-tracks',
       tracks: [
-        {title: "Cool Song You Like", url: "/BROKENexample-audio/example-tommymetz.mp3"},
-        {title: "Let's Eat Ice Cream", url: "/example-audio/example-wirefaces.mp3"},
-        {title: "Casio Keyboard Pandemic", url: "/example-audio/BROKENexample-tylerfong.mp3"},
+        {title: "Cool Song You Like", file: "/BROKENexample-audio/example-tommymetz.mp3"},
+        {title: "Let's Eat Ice Cream", file: "/example-audio/example-wirefaces.mp3"},
+        {title: "Casio Keyboard Pandemic", file: "/example-audio/BROKENexample-tylerfong.mp3"},
       ]
     });
   })();
@@ -41,17 +66,29 @@
 <br><br>
 <h3>Can't Find Div:</h3>
 
-<div style="width: 400px" id="tmm-web-audio-player-embed-03"></div>
+<div style="width: 400px" id="tmm-web-audio-player-embed-no-div"></div>
 <p>Should see JS error in dev console (option + command + i)</p>
 <script type="text/javascript">
   (function() {
     TMMWebAudioPlayer.init({
-      embed_div: 'tmm-web-audio-player-embed-03BROKEN',
+      embedDiv: 'tmm-web-audio-player-embed-no-divBROKEN',
       tracks: [
-        {title: "Cool Song You Like", url: "/example-audio/example-tommymetz.mp3"},
-        {title: "Let's Eat Ice Cream", url: "/example-audio/example-wirefaces.mp3"},
-        {title: "Casio Keyboard Pandemic", url: "/example-audio/example-tylerfong.mp3"},
+        {title: "Cool Song You Like", file: "/example-audio/example-tommymetz.mp3"},
+        {title: "Let's Eat Ice Cream", file: "/example-audio/example-wirefaces.mp3"},
+        {title: "Casio Keyboard Pandemic", file: "/example-audio/example-tylerfong.mp3"},
       ]
     });
   })();
 </script>
+
+<br><br>
+<h3>Iframe Example:</h3>
+<iframe
+  src="/index.html?tracksJsonUrl=/example-audio/tracks.json&debug=true"
+  frameborder="0" scrolling="no" style="width:100%; height:300px"></iframe>
+
+<br><br>
+<h3>Iframe Hosted Example:</h3>
+<iframe 
+  src="/index.html?tracksJsonUrl=https://tommetzmedia.s3.amazonaws.com/tmm-web-audio-player/tracks.json&debug=true"
+  frameborder="0" scrolling="no" style="width:100%; height:300px"></iframe>

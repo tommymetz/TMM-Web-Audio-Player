@@ -18,7 +18,7 @@ const setupApp = async () => {
   //Middleware//////////////////////////////////////////////////////////////////
   const __filename = fileURLToPath(import.meta.url)
   const __dirname = dirname(__filename)
-  app.use(express.static(__dirname + '/public', { maxAge: 1000 * 60 * 60 * 24 * 7 } ))
+  app.use(express.static(__dirname + '/public', {index: false, maxAge: 1000 * 60 * 60 * 24 * 7 } ))
   app.use((req, res, next) => {
     res.removeHeader('X-Powered-By');
     next();
