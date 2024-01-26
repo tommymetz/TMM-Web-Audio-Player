@@ -98,7 +98,8 @@ param: `?tracksJsonUrl=https://[path-to-cdn]/tracks.json&debug=true`.
 - `tracks` - An array of tracks.
   - `title` - The text to appear in the playlist.
   - `file` - The url to the audio file.
-- `tracksJsonUrl` - If you want to load the track info from a json file.
+- `tracksJsonUrl` - If you want to load the track info from a json file. How
+  iframe embedding works so you can specify the file via the iframe src.
 
 # Development
 
