@@ -67,8 +67,8 @@ also be just above the first instance of this player.
 
 ### Iframe embedding
 
-You can host this repo on netlify and use it as your iframe embed. Here is what
-that looks like:
+You can host this repo yourself and use it as your iframe embed. Here is what
+that looks like using netlify:
 
 ```
 <iframe 
