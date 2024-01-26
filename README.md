@@ -6,10 +6,9 @@ This is a simple embeddable web audio playlist player built with ReactJS.
 
 ## How To Use
 
-This isn't your typical iframe embed like most players because there is no
-backend. This can be used by simply hosting the js, css and audio files on a CDN
-(like Amazon Web Services S3) and then embed this code to load and display on
-your website.
+This player can be embedded directly into your site OR via an iframe.
+
+### Direct Embedding
 
 1. Host `tmm-web-audio-player.css` and `tmm-web-audio-player.js`, located in the
    `public` folder, as well as your mp3 files on a CDN like S3. Make sure these
@@ -64,14 +63,42 @@ also be just above the first instance of this player.
 
 4. You may also embed this multiple times (the css and js files in step #1
    should only be embedded once). Just make sure you change the id on the div
-   as well as in the `embed_div` parameter so that each embed has a unique id.
+   as well as in the `embedDiv` parameter so that each embed has a unique id.
 
-### Init Params
-- `embed_div` - The div you'd like the player to built into. If you have
+### Iframe embedding
+
+You can host this repo on netlify and use it as your iframe embed. Here is what
+that looks like:
+
+```
+<iframe 
+  src="https://[your-netlify-project].netlify.app/?tracksJsonUrl=https://[path-to-cdn]/tracks.json"
+  frameborder="0" scrolling="no" style="width:100%; height:300px"></iframe>
+```
+
+In order to make this work you need to upload a `tracks.json` file to your CDN
+that the iframe references via the `tracksJsonUrl` param. That file should live
+in the same folder as your mp3 files and look like this:
+
+```
+[
+  {"title": "Cool Song You Like", "file": "example-tommymetz.mp3"},
+  {"title": "Let's Eat Ice Cream", "file": "example-wirefaces.mp3"},
+  {"title": "Casio Keyboard Pandemic", "file": "example-tylerfong.mp3"}
+]
+```
+
+To help you debug you can also pass a param at the end of the `tracksJsonUrl`
+param: `?tracksJsonUrl=https://[path-to-cdn]/tracks.json&debug=true`.
+
+
+## Init Params
+- `embedDiv` - The div you'd like the player to built into. If you have
   multiple embeds just make sure each div has a unique it.
 - `tracks` - An array of tracks.
   - `title` - The text to appear in the playlist.
   - `file` - The url to the audio file.
+- `tracksJsonUrl` - If you want to load the track info from a json file.
 
 # Development
 
