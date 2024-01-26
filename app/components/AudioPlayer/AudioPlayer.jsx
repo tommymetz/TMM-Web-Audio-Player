@@ -25,12 +25,23 @@ export const AudioPlayer = ({src}) => {
     setShowError(true);
   }
 
-  // Stop all audio when another audio player is played
+  // Stop all audio when another audio player is played (non-iframe)
+  // useEffect(() => {
+  //   window.tmmStopAllAudio = new Event('tmmStopAllAudio');
+  //   window.addEventListener('tmmStopAllAudio', pauseAudio);
+  //   return () => {
+  //     window.removeEventListener('tmmStopAllAudio', pauseAudio);
+  //   };
+  // }, []);
+
+  // Stop all audio when another audio player is played (iframe)
   useEffect(() => {
-    window.tmmStopAllAudio = new Event('tmmStopAllAudio');
-    window.addEventListener('tmmStopAllAudio', pauseAudio);
+    window.addEventListener('message', (event) => {
+      // console.log('message received', event, src);
+      if(event.data === 'tmmStopAllAudio') pauseAudio();
+    })
     return () => {
-      window.removeEventListener('tmmStopAllAudio', pauseAudio);
+      window.removeEventListener('message');
     };
   }, []);
 
@@ -90,9 +101,12 @@ export const AudioPlayer = ({src}) => {
 
   const playAudio = () => {
     if(audioCanPlay){ 
-      window.dispatchEvent(window.tmmStopAllAudio);
-      audio.current.play();
-      setPaused(false);
+      // window.dispatchEvent(window.tmmStopAllAudio);
+      parent.postMessage('tmmStopAllAudio', '*');
+      setTimeout(() => {
+        audio.current.play();
+        setPaused(false);
+      }, 10);
     }
   }
 
@@ -112,7 +126,6 @@ export const AudioPlayer = ({src}) => {
   const timeline_loaded_style = {width: timelineLoadedWidth};
   const timeline_bar_style = {width: timelineBarWidth};
   const timeline_playhead_style = {left: timelinePlayheadLeft};
-  // const playpauseclasses = paused ? 'tmm_audio-player_play-pause paused' : 'tmm_audio-player_play-pause';
   return(
     <div className="tmm_audio-player">
       <audio ref={audio} src={src} preload="metadata" crossOrigin="anonymous"></audio>
@@ -122,7 +135,6 @@ export const AudioPlayer = ({src}) => {
         <div className="tmm_audio-player_timeline_playhead" style={timeline_playhead_style}></div>
         <div data-testid="audio-timeline" ref={audio_timeline} className="tmm_audio-player_timeline_overlay"></div>
       </div>
-      {/*<button className={playpauseclasses} onClick={handlePlayPause}></button>*/}
       <div className="tmm_audio-player_pause-play-button-container">
         <PausePlayButton paused={paused} onClick={handlePlayPause} />
       </div>

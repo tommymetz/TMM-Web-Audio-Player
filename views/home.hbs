@@ -1,5 +1,5 @@
-<link rel="stylesheet" href="/v1/tmm-web-audio-player.css">
-<script type="text/javascript" src="/v1/tmm-web-audio-player.js"></script>
+<link rel="stylesheet" href="/v1/tmm-web-audio-player.css?v=0.0.2">
+<script type="text/javascript" src="/v1/tmm-web-audio-player.js?v=0.0.2"></script>
 
 <br><br>
 <h3>TMM Web Audio Player:</h3>
@@ -83,6 +83,23 @@
 
 <br><br>
 <h3>Iframe Example:</h3>
+<script type="text/javascript">
+  window.addEventListener('message', (event) => {
+    if(event.data === 'tmmStopAllAudio'){
+      console.log('parent tmmStopAllAudio');
+      document.querySelectorAll('iframe').forEach(iframe => {
+        if (iframe.contentWindow !== event.source) {
+          // Replace '*' with specific origin for security
+          iframe.contentWindow.postMessage(event.data, '*');
+        }
+      });
+    }
+  });
+</script>
+
+<iframe
+  src="/index.html?tracksJsonUrl=/example-audio/tracks.json&debug=true"
+  frameborder="0" scrolling="no" style="width:100%; height:300px"></iframe>
 <iframe
   src="/index.html?tracksJsonUrl=/example-audio/tracks.json&debug=true"
   frameborder="0" scrolling="no" style="width:100%; height:300px"></iframe>
