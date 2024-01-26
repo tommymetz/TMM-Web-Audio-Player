@@ -86,10 +86,8 @@
 <script type="text/javascript">
   window.addEventListener('message', (event) => {
     if(event.data === 'tmmStopAllAudio'){
-      console.log('parent tmmStopAllAudio');
       document.querySelectorAll('iframe').forEach(iframe => {
         if (iframe.contentWindow !== event.source) {
-          // Replace '*' with specific origin for security
           iframe.contentWindow.postMessage(event.data, '*');
         }
       });
@@ -97,9 +95,6 @@
   });
 </script>
 
-<iframe
-  src="/index.html?tracksJsonUrl=/example-audio/tracks.json&debug=true"
-  frameborder="0" scrolling="no" style="width:100%; height:300px"></iframe>
 <iframe
   src="/index.html?tracksJsonUrl=/example-audio/tracks.json&debug=true"
   frameborder="0" scrolling="no" style="width:100%; height:300px"></iframe>

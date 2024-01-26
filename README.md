@@ -91,6 +91,23 @@ in the same folder as your mp3 files and look like this:
 To help you debug you can also pass a param at the end of the `tracksJsonUrl`
 param: `?tracksJsonUrl=https://[path-to-cdn]/tracks.json&debug=true`.
 
+If you are embedding multiple iframes and want them to pause pause each other,
+you need to add the following javascript to the page before the iframes
+**once**.
+
+```
+<script type="text/javascript">
+  window.addEventListener('message', (event) => {
+    if(event.data === 'tmmStopAllAudio'){
+      document.querySelectorAll('iframe').forEach(iframe => {
+        if (iframe.contentWindow !== event.source) {
+          iframe.contentWindow.postMessage(event.data, '*');
+        }
+      });
+    }
+  });
+</script>
+```
 
 ## Init Params
 - `embedDiv` - The div you'd like the player to built into. If you have

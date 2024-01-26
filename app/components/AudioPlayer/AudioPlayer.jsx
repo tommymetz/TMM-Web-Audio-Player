@@ -25,19 +25,9 @@ export const AudioPlayer = ({src}) => {
     setShowError(true);
   }
 
-  // Stop all audio when another audio player is played (non-iframe)
-  // useEffect(() => {
-  //   window.tmmStopAllAudio = new Event('tmmStopAllAudio');
-  //   window.addEventListener('tmmStopAllAudio', pauseAudio);
-  //   return () => {
-  //     window.removeEventListener('tmmStopAllAudio', pauseAudio);
-  //   };
-  // }, []);
-
-  // Stop all audio when another audio player is played (iframe)
+  // Stop all audio when another audio player is played
   useEffect(() => {
     window.addEventListener('message', (event) => {
-      // console.log('message received', event, src);
       if(event.data === 'tmmStopAllAudio') pauseAudio();
     })
     return () => {
@@ -101,7 +91,6 @@ export const AudioPlayer = ({src}) => {
 
   const playAudio = () => {
     if(audioCanPlay){ 
-      // window.dispatchEvent(window.tmmStopAllAudio);
       parent.postMessage('tmmStopAllAudio', '*');
       setTimeout(() => {
         audio.current.play();
