@@ -1,5 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react';
 import { PausePlayButton } from '../PausePlayButton/PausePlayButton.jsx';
+import { VolumeSlider } from '../VolumeSlider/VolumeSlider.jsx';
 import './AudioPlayer.scss';
 
 export const AudioPlayer = ({src}) => {
@@ -112,6 +113,10 @@ export const AudioPlayer = ({src}) => {
     }
   }
 
+  const onVolumeChange = (volume) => {
+    audio.current.volume = volume;
+  }
+
   const timeline_loaded_style = {width: timelineLoadedWidth};
   const timeline_bar_style = {width: timelineBarWidth};
   const timeline_playhead_style = {left: timelinePlayheadLeft};
@@ -123,6 +128,9 @@ export const AudioPlayer = ({src}) => {
         <div className="tmm_audio-player_timeline_bar" style={timeline_bar_style}></div>
         <div className="tmm_audio-player_timeline_playhead" style={timeline_playhead_style}></div>
         <div data-testid="audio-timeline" ref={audio_timeline} className="tmm_audio-player_timeline_overlay"></div>
+      </div>
+      <div className="tmm_audio-player_volume-slider-container">
+        <VolumeSlider onChange={onVolumeChange} />
       </div>
       <div className="tmm_audio-player_pause-play-button-container">
         <PausePlayButton paused={paused} onClick={handlePlayPause} />

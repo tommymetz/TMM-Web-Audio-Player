@@ -1,17 +1,19 @@
 @import '../../variables.scss';
 
+$sliderWidth: 15px;
+
 .tmm_audio-player{
   position: relative;
   width:100%;
   height:45px;
-  background-color: $gray;
 
   &_timeline{
-    width:100%;
+    width:calc(100% - $sliderWidth);
     height:100%;
     position: relative;
     z-index: 2;
     display:inline-block;
+    background-color: $gray;
 
     &_loaded{
       height:100%;
@@ -43,6 +45,15 @@
       height:100%;
       z-index: 10;
     }
+  }
+
+  &_volume-slider-container{
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    right:0;
+    width: $sliderWidth;
+    height:100%;
   }
 
   &_pause-play-button-container{
