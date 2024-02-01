@@ -50,13 +50,18 @@ export const Playlist = ({tracks, tracksJsonUrl}) => {
     setCurrentTrack(parseInt(event.currentTarget.getAttribute('data-index')));
   }
 
+  const onTrackEnd = () => {
+    const nextTrack = currentTrack + 1
+    if(nextTrack < finalTracks.length) setCurrentTrack(nextTrack)
+  }
+
   if(!loaded) return null
   return(
     <div className="tmm_playlist_container">
       {!showError && finalTracks.length > 0 && (
         <>
           <div className="tmm_playlist_player">
-            <AudioPlayer src={finalTracks[currentTrack].file} />
+            <AudioPlayer src={finalTracks[currentTrack].file} onEnd={onTrackEnd} />
           </div>
           <div className="tmm_playlist_list">
             {finalTracks.map((track, index) => {

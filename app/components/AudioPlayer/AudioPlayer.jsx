@@ -3,7 +3,7 @@ import { PausePlayButton } from '../PausePlayButton/PausePlayButton.jsx';
 import { VolumeSlider } from '../VolumeSlider/VolumeSlider.jsx';
 import './AudioPlayer.scss';
 
-export const AudioPlayer = ({src}) => {
+export const AudioPlayer = ({src, onEnd}) => {
   const [showError, setShowError] = useState(false);
   const [paused, setPaused] = useState(true);
   const [audioCanPlay, setAudioCanPlay] = useState(false);
@@ -42,6 +42,8 @@ export const AudioPlayer = ({src}) => {
     audio.current.addEventListener('loadedmetadata', onloadedMeta);
 
     audio.current.addEventListener('error', onAudioError);
+
+    audio.current.addEventListener('ended', onEnd);
 
     audio.current.onended = (event) => {
       audio.current.currentTime = 0;

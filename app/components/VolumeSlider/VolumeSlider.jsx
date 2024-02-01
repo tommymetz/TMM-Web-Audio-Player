@@ -36,10 +36,12 @@ export const VolumeSlider = ({onChange}) => {
     sliderRef.current.addEventListener('mousedown', handleMouseDown);
     sliderRef.current.addEventListener('mousemove', handleMouseMove);
     sliderRef.current.addEventListener('mouseup', handleMouseUp);
+    sliderRef.current.addEventListener('mouseleave', handleMouseUp);
     return () => {
       sliderRef.current.removeEventListener('mousedown', handleMouseDown);
       sliderRef.current.removeEventListener('mousemove', handleMouseMove);
       sliderRef.current.removeEventListener('mouseup', handleMouseUp);
+      sliderRef.current.removeEventListener('mouseleave', handleMouseUp);
     }
   }, []);
   
